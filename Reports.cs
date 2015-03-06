@@ -9,7 +9,7 @@ using TerrariaApi.Server;
 
 namespace GriefReport
 {
-    [ApiVersion(1, 16)]
+    [ApiVersion(1, 17)]
     public class Reports : TerrariaPlugin
     {
         #region plugin info
@@ -137,7 +137,7 @@ namespace GriefReport
                             Message temp = Other[0];
                             player.Teleport(temp.x * 16, temp.y * 16);
                             player.SendInfoMessage(string.Format("Reported by: {0} at {1} with a message...", temp.Name, temp.Date));
-                            player.SendMessage(string.Format("Message: \"{0}\"", temp.Report));
+                            player.SendMessage(string.Format("Message: \"{0}\"", temp.Report), Color.Green);
                             Other.Remove(temp);
                             player.SendWarningMessage("There are " + Griefs.Count + " reported griefs and " + Other.Count + " other reports left.");
                         }
